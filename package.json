@@ -1,0 +1,17 @@
+{
+  "name": "speedkartingsystems",
+  "version": "1.0.0",
+  "main": "src/launch.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node ./src/launch.js"
+  },
+  "author": "TheWunderbar",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "log-to-file": "^3.0.3"
+  }
+}
