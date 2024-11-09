@@ -7,5 +7,8 @@
     "BOT_CHANNEL": "1115706767284896005",
     "UNIVERSE": "1234",
 
+    "OAUTH_CLIENT_ID": "6421784969900322725",
+    "OAUTH_URL":"https://roblox.m23homelab.org/auth/roblox/callback",
+
     "devs": ["503200826848837632"]
 }

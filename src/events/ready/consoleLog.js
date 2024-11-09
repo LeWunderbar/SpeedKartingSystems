@@ -1,10 +1,10 @@
 const { Client, IntentsBitField, EmbedBuilder, Guild } = require("discord.js");
-const {config} = require("../../launch")
+const {config} = require("../../configurator")
 const log = require("../../utils/log")
 
 module.exports = (client) => {
     const c = client
-    log('The Bot "' + c.user.tag + '" is now online!')
+    log(`\x1b[38;2;87;117;144m[Client] \x1b[32m${c.user.username} \u001b[37mis online!`)
     c.user.setActivity({name: config.BOT_STATUS});
     const embed = new EmbedBuilder()
     .setTitle("Online")

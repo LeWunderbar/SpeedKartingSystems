@@ -1,4 +1,4 @@
-const {config} = require("../../launch")
+const {config} = require("../../configurator")
 const testServer = config.TEST_SERVER
 const devs = config.DEVS
 
