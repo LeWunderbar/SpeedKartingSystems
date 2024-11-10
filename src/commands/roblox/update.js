@@ -1,7 +1,7 @@
 const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { update } = require("./../../utils/updateDiscordUser")
 const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const schema = require("./../../schema/schema");
+const schema = require("./../../schema/verifying");
 const log = require("./../../utils/log")
 
 module.exports = {
