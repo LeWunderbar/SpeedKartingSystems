@@ -8,7 +8,7 @@ module.exports = {
 	// devOnly: Boolean,
 	// testOnly: Boolean,
 	// options: Object[],
-	// deleted: Boolean,
+	deleted: true,
 	// permissionsRequired: // EXSAMPLE: [PermissionFlagsBits.Administrator],
 	// botPermissions: 
 

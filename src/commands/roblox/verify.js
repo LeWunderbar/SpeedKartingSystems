@@ -1,7 +1,7 @@
 const { PermissionFlagsBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const { infoMessage, unknowenError } = require("./../../templates/embeds");
 const { config } = require("../../configurator");
-const schema = require("./../../schema/schema");
+const schema = require("../../schema/verifying");
 const log = require("../../utils/log");
 
 function makeId(length) {

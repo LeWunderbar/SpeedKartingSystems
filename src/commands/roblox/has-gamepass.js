@@ -46,27 +46,43 @@ module.exports = {
                     });
                 } else {
                     const hasGamepass = await checkGamePassOwnership(userid, gamepassId);
+                    const avatarRaw = await getAvatarThumbnail(userid);
+                    const thumbnailRaw = await getGamePassThumbnail(gamepassId, true);
+                    const gamepassInfoString = `**Name:** ${gamepassInfo.name}\n**ID:** ${gamepassInfo.id}\n**Price:** ${gamepassInfo.price}\n**Description:** ${gamepassInfo.description}`;
+
                     if (!hasGamepass) {
+                        const embed = new EmbedBuilder()
+                            .setAuthor({ name: `${username} (${userid})`, iconURL: avatarRaw[0]?.state === "Completed" ? avatarRaw[0].thumbnailUrl : undefined })
+                            .setColor("#f55a42")
+                            .setTitle("User dose not own the gamepass.")
+                            .setDescription(gamepassInfoString)
+                            .setTimestamp()
+                            .setFooter({ text: "SpeedKarting Systems", iconURL: botAvatar });
+                            if (thumbnailRaw[0]?.state === "Completed") {
+                                embed.setThumbnail(thumbnailRaw[0].thumbnailUrl);
+                            }
+                        const button = new ButtonBuilder()
+                            .setStyle(ButtonStyle.Link)
+                            .setLabel("View gamepass")
+                            .setURL(`https://www.roblox.com/game-pass/${gamepassId}`);
+                        const row = new ActionRowBuilder().addComponents(button);
+
                         interaction.reply({
-                            embeds: [infoMessage("User does not own the gamepass.")],
-                            ephemeral: true
+                            embeds: [embed],
+                            components: [row],
+                            ephemeral: false
                         });
                     } else {
-                        const thumbnailRaw = await getGamePassThumbnail(gamepassId, true);
-                        const avatarRaw = await getAvatarThumbnail(userid);
-
-                        const gamepassInfoString = `**Name:** ${gamepassInfo.name}\n**ID:** ${gamepassInfo.id}\n**Price:** ${gamepassInfo.price}\n**Description:** ${gamepassInfo.description}`;
                         const embed = new EmbedBuilder()
                             .setAuthor({ name: `${username} (${userid})`, iconURL: avatarRaw[0]?.state === "Completed" ? avatarRaw[0].thumbnailUrl : undefined })
                             .setTitle("User owns the gamepass.")
-                            .setColor("#f55a42")
-                            .addFields({ name: "Gamepass:", value: gamepassInfoString })
+                            .setColor("#51e640")
+                            .setDescription(gamepassInfoString)
                             .setTimestamp()
                             .setFooter({ text: "SpeedKarting Systems", iconURL: botAvatar });
-
-                        if (thumbnailRaw[0]?.state === "Completed") {
-                            embed.setThumbnail(thumbnailRaw[0].thumbnailUrl);
-                        }
+                            if (thumbnailRaw[0]?.state === "Completed") {
+                                embed.setThumbnail(thumbnailRaw[0].thumbnailUrl);
+                            }
 
                         const button = new ButtonBuilder()
                             .setStyle(ButtonStyle.Link)
@@ -77,7 +93,7 @@ module.exports = {
                         interaction.reply({
                             embeds: [embed],
                             components: [row],
-                            ephemeral: false,
+                            ephemeral: false
                         });
                     }
                 }
