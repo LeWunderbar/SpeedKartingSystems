@@ -1,6 +1,7 @@
-const { EmbedBuilder, PermissionFlagsBits,  ApplicationCommandOptionType } = require("discord.js")
-const schema = require("./../../schema/schema");
+const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { update } = require("./../../utils/updateDiscordUser")
+const { infoMessage, unknowenError } = require("./../../templates/embeds");
+const schema = require("./../../schema/schema");
 const log = require("./../../utils/log")
 
 module.exports = {
@@ -17,34 +18,38 @@ module.exports = {
   
     callback: async(client, interaction) => {
         try {
-            await interaction.deferReply({ephemeral: true});
             const discordUserId = interaction.options.get("discord-user").value
+
+            await interaction.deferReply({ephemeral: true});
+
             const data = await schema.find({ discordID: discordUserId }).exec();
+            const botAvatar = client.user.displayAvatarURL({
+                format: 'png',
+                size: 512
+            });
+
             if (data.length === 0) {
-                embed = new EmbedBuilder()
-                    .setTitle('Updating User Roles')
-                    .setDescription('The user you select is not verifyed! Cannot update user!')
-                    .setColor('#f55a42')
-                    .setTimestamp();
-                interaction.editReply({embeds: [embed], ephemeral: true})
+                interaction.editReply({
+                    embeds: [infoMessage("The user you select is not verifyed! Cannot update user!")],
+                    ephemeral: true
+                });
             } else {
                 const robloxUserId = data[0].robloxID
                 await update(robloxUserId, discordUserId)
                 embed = new EmbedBuilder()
-                    .setTitle('Updating User Roles')
-                    .setDescription('Successfuly updated user roles!')
+                    .setTitle('Updated user roles')
+                    .setDescription('Successfully updated user roles!')
                     .setColor('#48f542')
-                    .setTimestamp();
+                    .setTimestamp()
+                    .setFooter({ text: "SpeedKarting Systems", iconURL: botAvatar });
                 interaction.editReply({embeds: [embed], ephemeral: true})
             }
         } catch (err) {
-            log(err)
-            embed = new EmbedBuilder()
-                    .setTitle('Updating User Roles')
-                    .setDescription('There was an error! it has been logged. Please notify an bot devleoper!')
-                    .setColor('#f55a42')
-                    .setTimestamp();
-            interaction.editReply({embeds: [embed], ephemeral: true})
+            log(`\x1b[31m[Error] \x1b[32mAn error occurred:\n\x1b[0m${err}`)
+            interaction.reply({
+                embeds: [unknowenError("/update-unknowen")],
+                ephemeral: true
+            });
         }
   },
 }
