@@ -1,6 +1,8 @@
 const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const log = require("../../utils/log");
+const log = require("./../../utils/log");
+
+const tickets = require("./../../schema/tickets")
 
 module.exports = {
 	name: 'test',
@@ -8,12 +10,16 @@ module.exports = {
 	// devOnly: Boolean,
 	// testOnly: Boolean,
 	// options: Object[],
-	deleted: true,
+	//deleted: true,
 	// permissionsRequired: // EXSAMPLE: [PermissionFlagsBits.Administrator],
 	// botPermissions: 
 
 	callback: async(client, interaction) => {
 		try {
+
+			const allTickets = await tickets.find()
+
+			console.log(allTickets)
 
 			interaction.reply({
 				embeds: [infoMessage("Testing!")],

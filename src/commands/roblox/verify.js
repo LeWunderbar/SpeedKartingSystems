@@ -1,20 +1,9 @@
 const { PermissionFlagsBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const { config } = require("../../configurator");
-const schema = require("../../schema/verifying");
-const log = require("../../utils/log");
-
-function makeId(length) {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-
-    for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-
-    return result;
-}
+const { config } = require("./../../configurator");
+const schema = require("./../../schema/verifying");
+const log = require("./../../utils/log");
+const generateRandomString = require("./../../utils/generateRandomSting")
 
 module.exports = {
     name: 'verify',
@@ -57,7 +46,7 @@ module.exports = {
                     .setFooter({ text: "SpeedKarting Systems", iconURL: botAvatar });
             }
 
-            const code = makeId(10);
+            const code = generateRandomString(10);
             if (data.length > 0) {
                 data[0].statecode = code;
                 await data[0].save();
