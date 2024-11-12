@@ -18,7 +18,7 @@ console.log(`
 	██╔╝     ██████╔╝   ██║       ██║ ╚═╝ ██║███████╗██████╔╝
 	╚═╝      ╚═════╝    ╚═╝       ╚═╝     ╚═╝╚══════╝╚═════╝                                                
 `);
-log(`\x1b[38;2;249;65;68m[Launcher] \x1b[32m$Starting Bot ...`);
+log(`\x1b[38;2;249;65;68m[Launcher] \x1b[32mStarting Bot ...`);
 
 (async () => {
 	try {

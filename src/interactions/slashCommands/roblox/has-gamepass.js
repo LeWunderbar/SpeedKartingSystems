@@ -1,7 +1,7 @@
-const { getGamePassThumbnail, checkGamePassOwnership, getGamePassInfo, getUserIdFromUsername, getAvatarThumbnail } = require("./../../utils/roblox");
+const { getGamePassThumbnail, checkGamePassOwnership, getGamePassInfo, getUserIdFromUsername, getAvatarThumbnail } = require("./../../../utils/roblox");
 const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const log = require("../../utils/log");
+const { infoMessage, unknowenError } = require("./../../../templates/embeds");
+const log = require("../../../utils/log");
 
 module.exports = {
 	name: 'has-gamepass',

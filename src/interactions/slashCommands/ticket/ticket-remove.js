@@ -1,8 +1,8 @@
 const { PermissionFlagsBits, EmbedBuilder, ApplicationCommandOptionType } = require("discord.js");
-const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const { config } = require("./../../configurator")
-const Tickets = require("./../../schema/tickets");
-const log = require("./../../utils/log");
+const { infoMessage, unknowenError } = require("./../../../templates/embeds");
+const { config } = require("./../../../configurator")
+const Tickets = require("./../../../schema/tickets");
+const log = require("./../../../utils/log");
 
 module.exports = {
 	name: 'ticket-remove',

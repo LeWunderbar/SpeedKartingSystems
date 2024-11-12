@@ -1,8 +1,8 @@
 const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const { botAvatar } = require("./../../handlers/clientHandler")
-const log = require("./../../utils/log");
-const ticketSchema = require("./../../schema/tickets")
+const { infoMessage, unknowenError } = require("./../../../templates/embeds");
+const { botAvatar } = require("./../../../handlers/clientHandler")
+const log = require("./../../../utils/log");
+const ticketSchema = require("./../../../schema/tickets")
 
 module.exports = {
 	name: 'ticket-opener-create',
