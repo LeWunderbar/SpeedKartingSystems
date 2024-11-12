@@ -138,6 +138,6 @@ module.exports = () => {
     });
     
     app.listen(port, () => {
-    log(`\x1b[38;2;249;199;79m[Oauth] \x1b[32mPort ${port}\x1b[0m has been exposed and Service Online.`)
+    log(`\x1b[38;2;87;117;144m[Oauth] \x1b[32mPort ${port}\x1b[0m has been exposed and service Online.`)
     });
 };

@@ -10,5 +10,13 @@
     "OAUTH_CLIENT_ID": "6421784969900322725",
     "OAUTH_URL":"https://speedkartingsystems.m23homelab.org/auth/roblox/callback",
 
-    "devs": ["503200826848837632"]
+    "devs": ["503200826848837632"],
+    
+    "TicketLogChannel": "1305553446551687278",
+    "TicketCatagory": "1305248444876587090",
+    "TicketBannedRoles": ["1005598115463712838"],
+    "GeneralSupportHelpers": ["1006181062621270136"],
+    "PublicRelationsHelpers": ["1006181062621270136"],
+    "ModerationHelpers": ["1005599494789922846"],
+    "DevelopmentHelpers": ["1005599330230612020"]
 }

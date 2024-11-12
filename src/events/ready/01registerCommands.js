@@ -23,10 +23,10 @@ module.exports = async (client) => {
       if (existingCommand) {
         if (localCommand.deleted) {
           await applicationCommands.delete(existingCommand.id);
-          log(`\x1b[38;2;67;170;139m[Slash] \x1b[32m${name}\x1b[0m has been deleted.`)
+          log(`\x1b[38;2;248;150;30m[Slash] \x1b[32m${name}\x1b[0m has been deleted.`)
           continue;
         } else {
-          log(`\x1b[38;2;67;170;139m[Slash] \x1b[32m${name}\x1b[0m has been loaded.`)
+          log(`\x1b[38;2;248;150;30m[Slash] \x1b[32m${name}\x1b[0m has been loaded.`)
         }
 
         if (areCommandsDifferent(existingCommand, localCommand)) {
@@ -34,11 +34,11 @@ module.exports = async (client) => {
             description,
             options,
           });
-          log(`\x1b[38;2;67;170;139m[Slash] \x1b[32m${name}\x1b[0m has been edited.`)
+          log(`\x1b[38;2;248;150;30m[Slash] \x1b[32m${name}\x1b[0m has been edited.`)
         }
       } else {
         if (localCommand.deleted) {
-          log(`\x1b[38;2;67;170;139m[Slash] \x1b[32m${name}\x1b[0m has been skipped.`)
+          log(`\x1b[38;2;248;150;30m[Slash] \x1b[32m${name}\x1b[0m has been skipped.`)
           continue;
         }
 
@@ -48,7 +48,7 @@ module.exports = async (client) => {
           options,
         });
 
-        log(`\x1b[38;2;67;170;139m[Slash] \x1b[32m${name}\x1b[0m has been registered.`)
+        log(`\x1b[38;2;248;150;30m[Slash] \x1b[32m${name}\x1b[0m has been registered.`)
       }
     }
   } catch (error) {

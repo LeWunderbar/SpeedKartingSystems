@@ -7,7 +7,6 @@ const ranklistGame = require("./../lists/ranklistGame.json")
 
 async function update(RobloxUserId, DiscordUserId) {
     try {
-
         // Change nickname to Roblox Username
         const guild = client.guilds.cache.get(config.GUILD_ID)
         const username = await getUsernameFromUserId(RobloxUserId)
