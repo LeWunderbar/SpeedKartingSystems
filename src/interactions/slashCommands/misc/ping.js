@@ -1,6 +1,6 @@
 const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const log = require("../../utils/log");
+const { infoMessage, unknowenError } = require("./../../../templates/embeds");
+const log = require("../../../utils/log");
 
 module.exports = {
 	name: 'ping',

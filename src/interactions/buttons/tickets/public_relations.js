@@ -1,8 +1,8 @@
 const { EmbedBuilder, PermissionFlagsBits, ChannelType } = require("discord.js");
-const { infoMessage, unknowenError } = require("./../../templates/embeds");
-const log = require("./../../utils/log");
-const createTicket = require("./../../utils/createTicket")
-const { config } = require("./../../configurator")
+const { infoMessage, unknowenError } = require("./../../../templates/embeds");
+const log = require("./../../../utils/log");
+const createTicket = require("./../../../utils/createTicket")
+const { config } = require("./../../../configurator")
 
 module.exports = {
 	buttonId: 'public_relations',
