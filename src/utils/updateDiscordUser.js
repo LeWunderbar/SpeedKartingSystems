@@ -59,7 +59,9 @@ async function update(RobloxUserId, DiscordUserId) {
                 }
             }
 
-            // Ranks based on in-game rank:
+            // Roles based on in-game rank:
+
+
         }
     } catch (err) {
         log(`\x1b[31m[Error] \x1b[32m"An error occurred in UpdateDiscordUser.js:"\n\x1b[0m${err}`)
