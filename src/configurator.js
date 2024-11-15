@@ -1,4 +1,4 @@
-const development = true;
+const development = false;
 
 const config = development
 	? require('./../configDev.json')
