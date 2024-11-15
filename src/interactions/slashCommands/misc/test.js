@@ -6,11 +6,11 @@ module.exports = {
 	name: 'test',
 	description: 'testing!',
 	// devOnly: Boolean,
-	// testOnly: Boolean,
 	// options: Object[],
 	deleted: true,
 	// permissionsRequired: // Example: [PermissionFlagsBits.Administrator],
 	// botPermissions: 
+	testOnly: true,
 
 	callback: async (client, interaction) => {
 		try {

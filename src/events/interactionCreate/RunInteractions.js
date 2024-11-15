@@ -32,7 +32,7 @@ async function slashInteraction(interaction, client) {
 
 		if (commandObject.testOnly && interaction.guild.id !== config.TEST_SERVER) {
 			return interaction.reply({
-				content: 'This command cannot be run here.',
+				content: 'This command is testing only!',
 				ephemeral: true,
 			});
 		}

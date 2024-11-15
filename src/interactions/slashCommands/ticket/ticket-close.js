@@ -8,6 +8,7 @@ module.exports = {
     name: 'ticket-close',
     description: 'Close an open ticket',
     botPermissions: [PermissionFlagsBits.ManageChannels],
+    testOnly: true,
 
     callback: async (client, interaction) => {
         try {
