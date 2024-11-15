@@ -5,46 +5,38 @@ const log = require("./../../../utils/log");
 const ticketSchema = require("./../../../schema/tickets")
 
 module.exports = {
-	name: 'ticket-opener-create',
-	description: 'Create Ticket Opener Message',
+	name: 'verify-message',
+	description: 'Send Message with button to verify',
 	options: [
 		{
 			name: "channel",
-			description: "The channel to send the ticket opener to",
+			description: "The channel to send the message to",
 			required: true,
 			type: ApplicationCommandOptionType.Channel,
 		}
 	],
 	permissionsRequired: [PermissionFlagsBits.Administrator],
-	botPermissions: [PermissionFlagsBits.ManageChannels],
 
 	callback: async(client, interaction) => {
 		try {
 			const sendChannelId = interaction.options.get("channel").value
 			await interaction.deferReply();
 
+			const botAvatar = client.user.displayAvatarURL({
+                format: 'png',
+                size: 512
+            });
+
             const row = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
-                    .setStyle(ButtonStyle.Primary)
-                    .setLabel("General Support")
-                    .setCustomId("general_support"),
-                new ButtonBuilder()
-                    .setStyle(ButtonStyle.Primary)
-                    .setLabel("Public Relations")
-                    .setCustomId("public_relations"),
-                new ButtonBuilder()
-                    .setStyle(ButtonStyle.Primary)
-                    .setLabel("Moderation")
-                    .setCustomId("moderation"),
-                new ButtonBuilder()
-                    .setStyle(ButtonStyle.Primary)
-                    .setLabel("Development")
-                    .setCustomId("development") 
+                    .setStyle(ButtonStyle.Success)
+                    .setLabel("Verify")
+                    .setCustomId("verifyBtn"),
             )
 
 			const embed = new EmbedBuilder()
-				.setTitle("SpeedKarting Support")
-				.setDescription("Some Description")
+				.setTitle("Verification")
+				.setDescription("Welcome to SpeedKarting! Click the button below to verify and gain access to the rest of the server.")
 				.setColor("#f55a42")
 				.setFooter({ text: "SpeedKarting Systems", iconURL: botAvatar })
 			
@@ -63,7 +55,7 @@ module.exports = {
 		} catch (err) {
 			log(`\x1b[31m[Error] \x1b[32mAn error occurred:\n\x1b[0m${err}`)
 			interaction.reply({
-				embeds: [unknowenError("/ticket-opener-create-unknowen")],
+				embeds: [unknowenError("/verify-message-unknowen")],
 				ephemeral: true
 			});
 		}

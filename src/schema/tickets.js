@@ -9,4 +9,4 @@ const ticketSchema = new mongoose.Schema({
   participants: [String],  // Array of user IDs
 });
 
-module.exports = mongoose.model('ticket', ticketSchema);
+module.exports = mongoose.model('ticket', ticketSchema, "tickets");

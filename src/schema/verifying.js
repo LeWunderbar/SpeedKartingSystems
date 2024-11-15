@@ -9,4 +9,4 @@ const schema = new mongoose.Schema({
     robloxUsername: { type: String, required: false, default: null },
 });
 
-module.exports = mongoose.model("schema", schema);
+module.exports = mongoose.model("schema", schema, "verifications");
