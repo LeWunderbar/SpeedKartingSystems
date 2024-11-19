@@ -17,6 +17,7 @@ module.exports = {
 	  ],
 	botPermissions: [PermissionFlagsBits.ManageChannels],
 	testOnly: true,
+	deleted: true,
   
 	callback: async (client, interaction) => {
 	  	try {

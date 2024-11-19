@@ -18,5 +18,10 @@
     "GeneralSupportHelpers": ["1260335748242997358"],
     "PublicRelationsHelpers": ["1304891906572157049"],
     "ModerationHelpers": ["1304801780487421972"],
-    "DevelopmentHelpers": ["1304845472036552704", "1304845442819035192"]
+    "DevelopmentHelpers": ["1304845472036552704", "1304845442819035192"],
+
+    "ChannelPlaying": "1305239371192209580",
+    "ChannelVists": "1305239461084532786",
+    "ChannelLikes": "1305239528034009139",
+    "ChannelFavourites": "1305239609600376902"
 }
