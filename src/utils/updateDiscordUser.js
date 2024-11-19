@@ -22,7 +22,7 @@ async function update(RobloxUserId, DiscordUserId) {
             return 0
         }
 
-        console.log(member.roles.highest.position)
+        console.log(botMember.roles.highest.position)
         console.log(botMember.roles.highest.position)
 
         if (member.roles.highest.position >= botMember.roles.highest.position) {
