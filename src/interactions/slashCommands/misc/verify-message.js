@@ -2,7 +2,6 @@ const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType, ActionR
 const { infoMessage, unknowenError } = require("./../../../templates/embeds");
 const { botAvatar } = require("./../../../handlers/clientHandler")
 const log = require("./../../../utils/log");
-const ticketSchema = require("./../../../schema/tickets")
 
 module.exports = {
 	name: 'verify-message',
