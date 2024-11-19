@@ -42,6 +42,7 @@ module.exports = async (client) => {
             );
     }
     
+    UpdateChannels();
     setInterval(() => {
         UpdateChannels();
     }, 300 * 1000); // Sec
