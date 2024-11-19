@@ -12,7 +12,7 @@ async function update(RobloxUserId, DiscordUserId) {
         const guild = client.guilds.cache.get(config.GUILD_ID)
         const username = await getUsernameFromUserId(RobloxUserId)
         const member = await guild.members.fetch(DiscordUserId)
-        const botMember = client.guilds.fetch(config.GUILD_ID)
+        const botMember = await guild.members.fetch(client.user.id)
 
         if (member.id == guild.ownerId) {
             return "OwnerErr"
@@ -22,10 +22,10 @@ async function update(RobloxUserId, DiscordUserId) {
             return 0
         }
 
-        console.log(botMember.roles.highest.position)
+        console.log(member.roles.highest.position)
         console.log(botMember.roles.highest.position)
 
-        if (member.roles.highest.position >= botMember.roles.highest.position) {
+        if (member.roles.highest.position >= member.roles.highest.position) {
             console.log("postionErr")
             return "postionErr"
         }
