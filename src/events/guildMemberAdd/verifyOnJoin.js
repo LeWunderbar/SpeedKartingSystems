@@ -1,4 +1,4 @@
-const { infoMessage, unknowenError } = require("./../../templates");
+const { infoMessage, unknowenError } = require("./../../templates/embeds");
 const { update } = require("./../../utils/updateDiscordUser")
 const { config } = require("./../../configurator");
 const schema = require("./../../schema/verifying");
@@ -10,7 +10,7 @@ module.exports = async (member) => {
         if (member.guild.id == config.GUILD_ID) {
             if (!data.length === 0) {
                 if (data[0].verified) {
-                    await update()
+                    await update(data[0].robloxID, data[0].discordID)
                 }
             }
         }
