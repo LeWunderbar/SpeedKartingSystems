@@ -1,4 +1,4 @@
-const { infoMessage, unknowenError } = require("./../../../templates/embeds");
+const { infoMessage, unknowenError } = require("./../../templates");
 const { update } = require("./../../utils/updateDiscordUser")
 const { config } = require("./../../configurator");
 const schema = require("./../../schema/verifying");
