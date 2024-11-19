@@ -16,9 +16,5 @@ module.exports = async (member) => {
         }
     } catch (err) {
         log(`\x1b[31m[Error] \x1b[32mAn error occurred:\n\x1b[0m${err}`)
-        interaction.reply({
-            embeds: [unknowenError("verifyOnJoin-unknowen")],
-            ephemeral: true
-        });
     }
 }
