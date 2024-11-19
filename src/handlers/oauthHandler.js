@@ -6,7 +6,7 @@ const port = 3000;
 const { client } = require("./clientHandler")
 const { update } = require("./../utils/updateDiscordUser")
 const { OAUTH_CLIENT_ID } = require("./../../config.json");
-const log = require('../utils/log');
+const log = require('./../utils/log');
 const schema = require("./../schema/verifying")
 
 require('dotenv').config()
