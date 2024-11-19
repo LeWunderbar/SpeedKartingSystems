@@ -30,7 +30,7 @@ module.exports = async (client) => {
         fetch(`https://games.roblox.com/v1/games/votes?universeIds=${config.UNIVERSE}`)
             .then(res => res.json())
             .then(json => {
-                client.channels.cache.get(config.ChannelLikes).setName(`👍︱Likes: ${json.data[0].visits}`)
+                client.channels.cache.get(config.ChannelLikes).setName(`👍︱Likes: ${json.data[0].upVotes}`)
                 .catch(err => {
                     log(`\x1b[31m[Error] \x1b[32mAn error occurred while updating channels (likes):\n\x1b[0m${err}`);
                 });
