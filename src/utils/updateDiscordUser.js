@@ -21,6 +21,9 @@ async function update(RobloxUserId, DiscordUserId) {
             return 0
         }
 
+        console.log(member.roles.highest.position)
+        console.log(client.roles.highest.position)
+
         if (member.roles.highest.position >= client.roles.highest.position) {
             console.log("postionErr")
             return "postionErr"
