@@ -1,6 +1,7 @@
 const { getUserGroupRank, getUsernameFromUserId } = require("./../utils/roblox")
 const { client } = require("./../handlers/clientHandler")
 const { config, development} = require("./../configurator")
+const log = require("./../utils/log")
 
 const ranklistGroup = require("./../lists/ranklistGroup.json")
 const ranklistGame = require("./../lists/ranklistGame.json")
@@ -11,6 +12,7 @@ async function update(RobloxUserId, DiscordUserId) {
         const guild = client.guilds.cache.get(config.GUILD_ID)
         const username = await getUsernameFromUserId(RobloxUserId)
         const member = await guild.members.fetch(DiscordUserId)
+
         if (member.id == guild.ownerId) {
             return "OwnerErr"
         } 
@@ -20,6 +22,7 @@ async function update(RobloxUserId, DiscordUserId) {
         }
 
         if (member.roles.highest.position >= client.roles.highest.position) {
+            console.log("postionErr")
             return "postionErr"
         }
 
