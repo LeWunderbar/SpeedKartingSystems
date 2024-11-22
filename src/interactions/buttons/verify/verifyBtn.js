@@ -21,7 +21,10 @@ module.exports = {
 
             const data = await schema.findOneAndUpdate(
                 { discordID: user },
-                { $set: { statecode: code }, $setOnInsert: { robloxID: null, verified: false } },
+                { 
+                    $set: { statecode: code }, 
+                    $setOnInsert: { robloxID: null, verified: false, createdAt: new Date() }
+                },
                 { new: true, upsert: true }
             );
 

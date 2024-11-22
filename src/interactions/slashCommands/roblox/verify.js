@@ -19,18 +19,18 @@ module.exports = {
             });
 
             await interaction.deferReply({ephemeral: true});
-            const data = await schema.find({ discordID: user }).exec();
+
+            const data = await schema.findOneAndUpdate(
+                { discordID: user },
+                { 
+                    $set: { statecode: code }, 
+                    $setOnInsert: { robloxID: null, verified: false, createdAt: new Date() }
+                },
+                { new: true, upsert: true }
+            );
             let embed;
 
-            if (data.length === 0) {
-                const newSchema = new schema({
-                    robloxID: null,
-                    discordID: user,
-                    verified: false,
-                    statecode: null,
-                });
-                await newSchema.save();
-
+            if (data.createdAt && (new Date(data.createdAt)).getTime() === (new Date()).getTime()) {
                 embed = new EmbedBuilder()
                     .setTitle('Verification')
                     .setDescription('Click the button below to verify your Roblox account!')
