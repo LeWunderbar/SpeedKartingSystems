@@ -31,12 +31,15 @@ async function update(RobloxUserId, DiscordUserId) {
 
         // RP
         const RP_RankName = await getUserGroupRank(RobloxUserId, "16117955")
+        console.log(RP_RankName) //DEBUG
         if (RP_RankName != null) {
             if (ranklistGroup[RP_RankName]) {
                 try {
                     const roleRP = guild.roles.cache.find(r => r.id == ranklistGroup[RP_RankName])
+                    console.log(roleRP) //DEBUG
                     if (roleRP) {
                         member.roles.add(roleRP.id)
+                        console.log("Added") //DEBUG
                     }
                 } catch (err) {
                     log(`\x1b[31m[Error] \x1b[32m"An error occurred in UpdateDiscordUser.js:"\n\x1b[0m${err}`)
