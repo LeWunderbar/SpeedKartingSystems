@@ -28,12 +28,16 @@ async function update(RobloxUserId, DiscordUserId) {
 
         member.setNickname(username)
         // Roles based on group rank
+
         // RP
         const RP_RankName = await getUserGroupRank(RobloxUserId, "16117955")
         if (RP_RankName != null) {
             if (ranklistGroup[RP_RankName]) {
                 try {
-                    member.roles.add(ranklistGroup[RP_RankName])
+                    const roleRP = guild.roles.cache.find(r => r.id == ranklistGroup[RP_RankName])
+                    if (roleRP) {
+                        member.roles.add(roleRP.id)
+                    }
                 } catch (err) {
                     log(`\x1b[31m[Error] \x1b[32m"An error occurred in UpdateDiscordUser.js:"\n\x1b[0m${err}`)
                 }
@@ -45,7 +49,10 @@ async function update(RobloxUserId, DiscordUserId) {
         if (QA_RankName != null) {
             if (ranklistGroup[QA_RankName]) {
                 try {
-                    member.roles.add(ranklistGroup[QA_RankName])
+                    const roleQA = guild.roles.cache.find(r => r.id == ranklistGroup[QA_RankName])
+                    if (roleQA) {
+                        member.roles.add(roleQA.id)
+                    }
                 } catch (err) {
                     log(`\x1b[31m[Error] \x1b[32m"An error occurred in UpdateDiscordUser.js:"\n\x1b[0m${err}`)
                 }
@@ -57,7 +64,10 @@ async function update(RobloxUserId, DiscordUserId) {
         if (Mod_RankName != null) {
             if (ranklistGroup[Mod_RankName]) {
                 try {
-                    member.roles.add(ranklistGroup[Mod_RankName])
+                    const roleMod = guild.roles.cache.find(r => r.id == ranklistGroup[Mod_RankName])
+                    if (roleMod) {
+                        member.roles.add(roleMod.id)
+                    }
                 } catch (err) {
                     log(`\x1b[31m[Error] \x1b[32m"An error occurred in UpdateDiscordUser.js:"\n\x1b[0m${err}`)
                 }
