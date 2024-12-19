@@ -8,6 +8,10 @@ module.exports = async (oldGuild, newGuild) => {
             return
         }
 
+        if (newGuild.id != config.GUILD_ID) {
+            return
+        }
+
         const channel = guild.channels.cache.get(config.ChannelBoosts);
         const boostCount = guild.premiumSubscriptionCount;
 
